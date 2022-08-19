@@ -1,0 +1,87 @@
+<%- include('./partial/header.ejs')%>
+
+<div class="container">
+  <div class="row mt-5" style="height: 100%">
+    <div class="col-xs-1 col-lg-3"></div>
+    <div
+      class="col-xs-11 col-lg-6 text-center rounded text-dark shadow p-3 mb-5 rounded"
+      style="background-color: rgba(207, 236, 245, 0.872)"
+    >
+      <p class="mt-4" style="font-size: 175%; text-align: center">
+        Task Manager
+      </p>
+      <form action="/task" method="post">
+        <input
+          id="formsubmit"
+          type="text"
+          name="taskName"
+          class="form-control"
+          style="
+            width: 50%;
+            outline: none;
+            border-radius: 25px 0 0 25px;
+            border: none;
+          "
+          id="exampleFormControlInput1"
+          placeholder="E.g:celebrate birthday"
+        />
+        <input
+          style="
+            background-color: #ffc107;
+            position: relative;
+            border-radius: 0 25px 25px 0;
+            width: 50;
+            border: none;
+            outline: none;
+            color: #fff;
+          "
+          id="formsubmit"
+          type="submit"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="submit"
+        />
+      </form>
+      <%- include('./partial/errMessage')%>
+      <style>
+        #formsubmit {
+          display: inline-block;
+          width: 100px;
+          height: 40px;
+        }
+      </style>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3"></div>
+    <div
+      class="col-lg-6 text-center rounded text-dark shadow p-3 mb-5 rounded"
+      style="background-color: rgba(207, 236, 245, 0.872); height: 70px"
+    >
+      <div class="row">
+        <div class="col-7">
+          <p style="font-size: 1.2rem">Celebrate the birthday 🎈</p>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-1">
+          <button
+            type="submit"
+            style="border-radius: 50%; color: rgb(156, 47, 234); outline: none"
+          >
+            <i class="bi bi-pencil-square rounded"></i>
+          </button>
+        </div>
+        <div class="col-1">
+          <button
+            type="submit"
+            style="border-radius: 50%; color: red; outline: none"
+          >
+            <i class="bi bi-archive"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('./partial/footer.ejs')%>
+</div>
