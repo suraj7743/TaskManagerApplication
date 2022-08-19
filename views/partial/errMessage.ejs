@@ -1,15 +1,20 @@
 <% if (typeof err!= 'undefined'){%> <%err.forEach(function(err){%>
-<div
-  class="alert alert-warning alert-dismissible fade show text-center mb-5 rounded"
-  style="height: 20%"
-  role="alert"
->
-  <h5><%=err.message%></h5>
-  <button
-    type="button"
-    class="btn-close"
-    data-bs-dismiss="alert"
-    aria-label="Close"
-  ></button>
+
+<div class="" role="alert">
+  <div class="row">
+    <div class="col-3"></div>
+    <div
+      class="col-6 alert alert-warning alert-dismissible fade show text-center mt-2 text-dark text-warning"
+      role=""
+    >
+      <i class="bi bi-exclamation-triangle-fill"></i><%=err.message%>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+  </div>
 </div>
-<%})%> <%}%>
+<%})%> <%}%> <% err=[]%>

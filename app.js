@@ -6,7 +6,8 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const dotenv = require("dotenv").config("./.env");
 const ejs = require("ejs");
-const route = require("./routes/taskRoute");
+const flash = require("connect-flash");
+const router = require("./routes/taskRoute");
 const appError = require("./utilis/appError");
 const catchAsync = require("./utilis/catchAsync");
 
@@ -18,8 +19,8 @@ app.set("views", "./views");
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cookieParser("secret"));
-app.use("/task", route);
+
+app.use("/task", router);
 
 app.use("*", (req, res, next) => {
   next(new appError("sorry this route cannot be found ", 400));

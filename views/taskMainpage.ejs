@@ -7,7 +7,8 @@
       class="col-xs-11 col-lg-6 text-center rounded text-dark shadow p-3 mb-5 rounded"
       style="background-color: rgba(207, 236, 245, 0.872)"
     >
-      <p class="mt-4" style="font-size: 175%; text-align: center">
+      <%- include('./partial/errMessage')%>
+      <p class="mt-1" style="font-size: 175%; text-align: center">
         Task Manager
       </p>
       <form action="/task" method="post">
@@ -42,7 +43,7 @@
           placeholder="submit"
         />
       </form>
-      <%- include('./partial/errMessage')%>
+
       <style>
         #formsubmit {
           display: inline-block;
