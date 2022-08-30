@@ -7,7 +7,9 @@
       class="col-xs-11 col-lg-6 text-center rounded text-dark shadow p-3 mb-5 rounded"
       style="background-color: rgba(207, 236, 245, 0.872)"
     >
-      <%- include('./partial/errMessage')%>
+      <%- include('./partial/errMessage')%> <%-
+      include('./partial/solvedMessage')%>
+
       <p class="mt-1" style="font-size: 175%; text-align: center">
         Task Manager
       </p>
@@ -67,6 +69,7 @@
         <div class="col-1">
           <button
             type="submit"
+            name="edit"
             style="border-radius: 50%; color: rgb(156, 47, 234); outline: none"
           >
             <i class="bi bi-pencil-square rounded"></i>
@@ -75,6 +78,7 @@
         <div class="col-1">
           <button
             type="submit"
+            name="delete"
             style="border-radius: 50%; color: red; outline: none"
           >
             <i class="bi bi-archive"></i>
@@ -84,5 +88,39 @@
     </div>
   </div>
 
-  <%- include('./partial/footer.ejs')%>
+  <% if (typeof DatabaseItem!= 'undefined'){%>
+  <%DatabaseItem.forEach(function(DatabaseItem){%>
+  <div class="row">
+    <div class="col-3"></div>
+    <div
+      class="col-lg-6 text-center rounded text-dark shadow p-3 mb-5 rounded"
+      style="background-color: rgba(207, 236, 245, 0.872); height: 70px"
+    >
+      <div class="row">
+        <div class="col-7">
+          <p style="font-size: 1.2rem"><%=DatabaseItem.name%></p>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-1">
+          <button
+            type="submit"
+            name="edit"
+            style="border-radius: 50%; color: rgb(156, 47, 234); outline: none"
+          >
+            <i class="bi bi-pencil-square rounded"></i>
+          </button>
+        </div>
+        <div class="col-1">
+          <button
+            type="submit"
+            name="delete"
+            style="border-radius: 50%; color: red; outline: none"
+          >
+            <i class="bi bi-archive"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%})%> <%}%> <% DatabaseItem=[]%> <%- include('./partial/footer.ejs')%>
 </div>

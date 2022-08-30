@@ -10,6 +10,8 @@ const flash = require("connect-flash");
 const router = require("./routes/taskRoute");
 const appError = require("./utilis/appError");
 const catchAsync = require("./utilis/catchAsync");
+const taskModel = require("./model/taskModel");
+const { default: mongoose } = require("mongoose");
 
 //set templete engine
 app.set("view-engine", ejs);
@@ -35,6 +37,11 @@ app.use((err, req, res, next) => {
     message: err.message,
   });
 });
+const mogodbUrl = process.env.MONGODB_ATLAS.replace(
+  "password",
+  process.env.ATLAS_PASSWORD
+);
 app.listen(process.env.PORT || 8000, async (req, res, next) => {
   console.log("listening to server 8000 ");
+  await mongoose.connect(process.env.MONGODB_COMPASS);
 });
